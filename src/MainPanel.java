@@ -15,6 +15,7 @@ public class MainPanel extends JPanel{
         public JPanel balancePane = new JPanel();
         public JPanel btnsPane = new JPanel();
         public JPanel northPane = new JPanel();
+        final String img = "assets\\img\\";
     
     public MainPanel(){
         this.setLayout(new FlowLayout());
@@ -61,8 +62,18 @@ public class MainPanel extends JPanel{
         JButton notif = new JButton();
         JButton settings = new JButton();
 
+        settings.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
+        settings.setFocusable(false);
+
         menuPane.add(notif);
         menuPane.add(settings);
+
+        ImageIcon settingsImg = new ImageIcon(new ImageIcon(img+"settings.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
+
+        JLabel settingsIcon = new JLabel(settingsImg);
+
+        settings.add(settingsIcon);
+
     }
 
     public void balance(){
@@ -176,7 +187,6 @@ public class MainPanel extends JPanel{
         panel6.add(label6);
 
         // Images
-        String img = "assets\\img\\";
         int w = 140, h = 140;
 
         ImageIcon withdrawImg = new ImageIcon(new ImageIcon(img+"cash-withdrawal.png").getImage().getScaledInstance(w,h, Image.SCALE_DEFAULT));

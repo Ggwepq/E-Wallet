@@ -33,6 +33,7 @@ public class ATMFrame extends JFrame{
         this.add(east, BorderLayout.EAST);
         this.add(west, BorderLayout.WEST);
         this.add(south, BorderLayout.SOUTH);
+
     }
 
 
