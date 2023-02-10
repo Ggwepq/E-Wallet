@@ -16,6 +16,7 @@ public class MainPanel extends JPanel{
         public JPanel btnsPane = new JPanel();
         public JPanel northPane = new JPanel();
         final String img = "assets\\img\\";
+
     
     public MainPanel(){
         this.setLayout(new FlowLayout());
@@ -26,8 +27,8 @@ public class MainPanel extends JPanel{
         btnsPane.setPreferredSize(new Dimension(800, 380));
         btnsPane.setLayout(new GridLayout(2, 3, 10, 10));
 
-        northPane.setPreferredSize(new Dimension(950, 80));
-        northPane.setLayout(new FlowLayout(FlowLayout.LEFT, 80,15));
+        northPane.setPreferredSize(new Dimension(850, 80));
+        northPane.setLayout(new GridLayout(1,2,30, 10));
 
         this.add(northPane);
         this.add(balancePane);
@@ -40,39 +41,37 @@ public class MainPanel extends JPanel{
     }
 
     public void topPane(){
-        JPanel accountPane = new JPanel();
-        JPanel menuPane = new JPanel();
+        JPanel rleftPane = new JPanel();
+        JPanel lleftPane = new JPanel();
 
-        accountPane.setPreferredSize(new Dimension(300, 50));
-        accountPane.setBackground(Color.DARK_GRAY);
-        accountPane.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 15));
+        rleftPane.setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 10));
 
-        menuPane.setPreferredSize(new Dimension(150, 50));
-        menuPane.setLayout(new GridLayout(1,2,5,0));
+        lleftPane.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-        northPane.add(accountPane);
-        northPane.add(menuPane);
-
-        JLabel account = new JLabel();
-        account.setText("No Account");
-        account.setFont(new Font("Comfortaa", Font.BOLD, 15));
-
-        accountPane.add(account);
+        northPane.add(lleftPane);
+        northPane.add(rleftPane);
 
         JButton notif = new JButton();
         JButton settings = new JButton();
 
-        settings.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
+        notif.setPreferredSize(new Dimension(60, 60));
+        notif.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
+        notif.setFocusable(false);
+        settings.setPreferredSize(new Dimension(60, 60));
+        settings.setLayout(new FlowLayout(FlowLayout.CENTER, 0,0));
         settings.setFocusable(false);
 
-        menuPane.add(notif);
-        menuPane.add(settings);
+        rleftPane.add(notif);
+        rleftPane.add(settings);
 
-        ImageIcon settingsImg = new ImageIcon(new ImageIcon(img+"settings.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
+        // Button Images
 
-        JLabel settingsIcon = new JLabel(settingsImg);
+        JLabel settingIcon = new JLabel(new ImageIcon(new ImageIcon(img+"gear.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
 
-        settings.add(settingsIcon);
+        JLabel notifIcon = new JLabel(new ImageIcon(new ImageIcon(img+"bell.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+
+        notif.add(notifIcon);
+        settings.add(settingIcon);
 
     }
 
@@ -103,14 +102,14 @@ public class MainPanel extends JPanel{
         JPanel historyPane = new JPanel();
         JPanel fundsPane = new JPanel();
         JPanel loansPane = new JPanel();
-        JPanel panel6 = new JPanel();
+        JPanel exitPane = new JPanel();
 
         withdrawPane.setLayout(new FlowLayout());
         depMonPane.setLayout(new FlowLayout());
         historyPane.setLayout(new FlowLayout());
         fundsPane.setLayout(new FlowLayout());
         loansPane.setLayout(new FlowLayout());
-        panel6.setLayout(new FlowLayout());
+        exitPane.setLayout(new FlowLayout());
 
         // Add Panels to the Main Panel
         btnsPane.add(withdrawPane);
@@ -118,7 +117,7 @@ public class MainPanel extends JPanel{
         btnsPane.add(fundsPane);
         btnsPane.add(loansPane);
         btnsPane.add(historyPane);
-        btnsPane.add(panel6);
+        btnsPane.add(exitPane);
 
         // Buttons
         JButton withdraw = new JButton();
@@ -126,7 +125,7 @@ public class MainPanel extends JPanel{
         JButton funds = new JButton();
         JButton loans = new JButton();
         JButton history = new JButton();
-        JButton btn6 = new JButton();
+        JButton exit = new JButton();
 
         // default width and height of the buttons
         int wid = 240;
@@ -137,21 +136,21 @@ public class MainPanel extends JPanel{
         funds.setPreferredSize(new Dimension(wid, hei));
         loans.setPreferredSize(new Dimension(wid, hei));
         history.setPreferredSize(new Dimension(wid, hei));
-        btn6.setPreferredSize(new Dimension(wid, hei));
+        exit.setPreferredSize(new Dimension(wid, hei));
 
         withdraw.setLayout(new FlowLayout(FlowLayout.CENTER, 0,0));
         deposit.setLayout(new FlowLayout(FlowLayout.CENTER, 0,0));
         funds.setLayout(new FlowLayout(FlowLayout.CENTER, 0,0));
         loans.setLayout(new FlowLayout(FlowLayout.CENTER, 0,0));
         history.setLayout(new FlowLayout(FlowLayout.CENTER, 0,0));
-        btn6.setLayout(new FlowLayout(FlowLayout.CENTER, 0,0));
+        exit.setLayout(new FlowLayout(FlowLayout.CENTER, 0,0));
 
         withdraw.setFocusable(false);
         deposit.setFocusable(false);
         funds.setFocusable(false);
         loans.setFocusable(false);
         history.setFocusable(false);
-        btn6.setFocusable(false);
+        exit.setFocusable(false);
 
         // Add Buttons to the Panel
         withdrawPane.add(withdraw);
@@ -159,7 +158,7 @@ public class MainPanel extends JPanel{
         fundsPane.add(funds);
         loansPane.add(loans);
         historyPane.add(history);
-        panel6.add(btn6);
+        exitPane.add(exit);
 
         // Buttons Label
 
@@ -168,7 +167,7 @@ public class MainPanel extends JPanel{
         JLabel fundsLabel = new JLabel("Send Money");
         JLabel loansLabel = new JLabel("Manage Loans");
         JLabel historyLabel = new JLabel("Transaction History");
-        JLabel label6 = new JLabel("Label6");
+        JLabel exitLabel = new JLabel("Exit");
         
         // fonts
         withdrawLabel.setFont(new Font("Comfortaa", Font.PLAIN,18));
@@ -176,7 +175,7 @@ public class MainPanel extends JPanel{
         fundsLabel.setFont(new Font("Comfortaa", Font.PLAIN, 18));
         loansLabel.setFont(new Font("Comfortaa", Font.PLAIN,18));
         historyLabel.setFont(new Font("Comfortaa", Font.PLAIN,18));
-        label6.setFont(new Font("Comfortaa", Font.PLAIN,18));
+        exitLabel.setFont(new Font("Comfortaa", Font.PLAIN,18));
 
         // Add buttons to their respective panels
         withdrawPane.add(withdrawLabel);
@@ -184,7 +183,7 @@ public class MainPanel extends JPanel{
         fundsPane.add(fundsLabel);
         loansPane.add(loansLabel);
         historyPane.add(historyLabel);
-        panel6.add(label6);
+        exitPane.add(exitLabel);
 
         // Images
         int w = 140, h = 140;
@@ -194,6 +193,7 @@ public class MainPanel extends JPanel{
         ImageIcon sendImg = new ImageIcon(new ImageIcon(img+"transfer.png").getImage().getScaledInstance(w, h, Image.SCALE_DEFAULT));
         ImageIcon loanImg = new ImageIcon(new ImageIcon(img+"loan.png").getImage().getScaledInstance(w, h, Image.SCALE_DEFAULT));
         ImageIcon histImg = new ImageIcon(new ImageIcon(img+"time-management.png").getImage().getScaledInstance(w, h, Image.SCALE_DEFAULT));
+        JLabel exitIcon = new JLabel(new ImageIcon(new ImageIcon(img+"cancel.png").getImage().getScaledInstance(w,h, Image.SCALE_DEFAULT)));
 
         JLabel wthIcon = new JLabel(withdrawImg);
         JLabel depIcon = new JLabel(depositImg);
@@ -206,7 +206,16 @@ public class MainPanel extends JPanel{
         funds.add(transferImg);
         loans.add(loanIcon);
         history.add(histIcon);
+        exit.add(exitIcon);
 
+        // Events
+
+        exit.addActionListener(e -> exitEvent());
+
+    }
+
+    public void exitEvent(){
+        ATM.exit(); 
     }
 
 }

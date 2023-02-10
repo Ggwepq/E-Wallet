@@ -7,8 +7,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 public class ATMFrame extends JFrame{
     
@@ -36,13 +34,12 @@ public class ATMFrame extends JFrame{
 
     }
 
+    public void exit(){
+        this.dispose();
+    }
 
-    
     public static void main(String[] args){
-
-        FlatLightLaf.setup(new FlatMacDarkLaf());
-
-        new ATMFrame().setVisible(true);
+        new ATMFrame();
     }
     
 }
