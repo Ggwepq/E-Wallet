@@ -1,5 +1,5 @@
 import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 
 public class ATM{
     
@@ -11,7 +11,7 @@ public class ATM{
     }
 
     public static void main(String[] args){
-        FlatLaf.setup(new FlatMacDarkLaf());
+        FlatLaf.setup(new FlatMacLightLaf());
 
         atm = new ATMFrame();
         mp = new MainPanel();

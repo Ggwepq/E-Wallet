@@ -3,7 +3,7 @@ import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import java.awt.Color;
 
-import javax.swing.JButton;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 public class ATMFrame extends JFrame{
     
     public ATMFrame(){
-        this.setTitle("Home Page");
+        this.setTitle("Main Menu");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1050, 700);
         this.setResizable(false);
@@ -31,6 +31,9 @@ public class ATMFrame extends JFrame{
         this.add(east, BorderLayout.EAST);
         this.add(west, BorderLayout.WEST);
         this.add(south, BorderLayout.SOUTH);
+
+        ImageIcon icon = new ImageIcon("assets\\img\\money.ico");
+        this.setIconImage(icon.getImage());
 
     }
 
